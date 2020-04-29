@@ -1,0 +1,25 @@
+.border, .border-1, .child-borders>:nth-child(6n+1) {
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+}
+
+.border, .border-1, .child-borders>:nth-child(6n+1) {
+  border-bottom-left-radius: 15px 255px;
+}
+
+.border {
+  border: 2px solid #41403e;
+}
+.note {
+  background-color: #e6ddd0;
+  padding: 1em;
+  margin-bottom: 3em;
+}
+
+//.full-rotate {
+//  margin: auto;
+//  width: 80vw;
+//  max-width: 40em;
+//  transform: rotate(-3deg);
+//}
