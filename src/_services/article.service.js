@@ -20,7 +20,7 @@ function createArticle(article) {
         body: JSON.stringify(article)
     };
 
-    return fetch(`${apiUrl}/users/register`, requestOptions).then(handleResponse);
+    return fetch(`${apiUrl}/article/create`, requestOptions).then(handleResponse);
 }
 
 

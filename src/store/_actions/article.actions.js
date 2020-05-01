@@ -5,37 +5,18 @@ import {articleService} from '../../_services/article.service';
 
 export const articleActions = {
     random,
-    postArticle
+    successVoice,
+    errorVoice,
 };
 
-function postArticle(article) {
-    return dispatch => {
-        dispatch(request(article));
-
-        articleService.createArticle(article)
-            .then(
-                article => {
-                    dispatch(success());
-                    history.push('/article');
-                },
-                error => {
-                    dispatch(failure(error.toString()));
-                }
-            );
-    };
-
-    function request(article) {
-        return {type: articleConstants.POST_REQUEST, article};
-    }
-
-    function success(article) {
-        return {type: articleConstants.POST_SUCCESS, article};
-    }
-
-    function failure(error) {
-        return {type: articleConstants.POST_FAILURE, error};
-    }
+function successVoice(voice) {
+    return {type: articleConstants.VOICE_SUCCESS, voice};
 }
+
+function errorVoice(voice) {
+    return {type: articleConstants.VOICE_FAILURE, voice};
+}
+
 
 function random() {
     return dispatch => {

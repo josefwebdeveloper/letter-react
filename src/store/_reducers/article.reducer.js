@@ -10,15 +10,14 @@ export function article(state = {}, action) {
             return {
                 randomArticle: action.article
             };
+
         case articleConstants.RANDOM_FAILURE:
             return {
                 error: action.error
             };
-        case articleConstants.POST_REQUEST:
-            return {post: true};
-        case articleConstants.POST_SUCCESS:
-            return {};
-        case articleConstants.POST_FAILURE:
+
+
+        case articleConstants.CLEAR_ARTICLE:
             return {};
         default:
             return state;

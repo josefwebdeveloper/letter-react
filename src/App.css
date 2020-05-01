@@ -3,4 +3,10 @@ body {
     background-color: #d2bf9e;
     font-family: Architects Daughter, cursive;
 }
+.note{
+    background-color: #e6ddd0;
+    padding: 1em;
+    margin-bottom: 3em;
+}
+
 
