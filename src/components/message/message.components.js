@@ -3,14 +3,13 @@ import './message.style.scss';
 import {useDispatch, useSelector} from 'react-redux';
 import {articleActions} from '../../store/_actions/article.actions';
 import {voiceAction} from '../../store/_actions/voice.action';
+import {VoiceEnum} from './voice'
 
 const Message = (props) => {
     const msg = new SpeechSynthesisUtterance();
     const voices = speechSynthesis.getVoices();
     const [show, setShow] = useState(false);
     let showSound = false;
-    console.log(showSound);
-    // let voices = [];
     const randomArticleVoice = useSelector(state => state.article);
     const voiceV = useSelector(state => state.voice);
     const dispatch = useDispatch();
@@ -24,19 +23,21 @@ const Message = (props) => {
         // console.log(document.getElementById('message'));
     }, []);
     const nextHandle = (e) => {
-        if (!e) {
+        console.log(e)
+        console.log(VoiceEnum.eng,VoiceEnum.he)
+        if (e!==VoiceEnum.eng && e!==VoiceEnum.he) {
             dispatch(articleActions.random());
+        }else{
+            const name = e;
+            msg.voice = voices.find(voice =>
+                voice.name === name
+            );
         }
-        const name = e;
-        // const name = 'Rishi';
-        msg.voice = voices.find(voice =>
-            voice.name === name
-        );
+
         setTimeout(() => {
-            console.log(document.getElementById('tsx').innerHTML);
             msg.text = document.getElementById('tsx').innerHTML;
             speechSynthesis.speak(msg);
-        }, 2000);
+        }, 3000);
     };
 
 
@@ -75,7 +76,6 @@ const Message = (props) => {
         // toggle();
     }
 
-    debugger
     return (
         <div id='message' className=' '>
 
@@ -87,11 +87,11 @@ const Message = (props) => {
                 </button>
             </div>
             <div className={show ? 'show' : 'none'}>
-                <button className="btn btn-primary" onClick={() => nextHandle('Daniel')}>
+                <button className="btn btn-primary" onClick={() => nextHandle(VoiceEnum.eng)}>
                     English
                 </button>
 
-                <button className="btn btn-primary" onClick={() => nextHandle('Carmit')}>
+                <button className="btn btn-primary" onClick={() => nextHandle(VoiceEnum.he)}>
                     Hebrew
                 </button>
             </div>
