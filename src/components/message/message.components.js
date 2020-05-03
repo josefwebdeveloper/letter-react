@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {articleActions} from '../../store/_actions/article.actions';
 import {voiceAction} from '../../store/_actions/voice.action';
 import {VoiceEnum} from './voice'
+import {timerService} from '../../_services/timer.service';
 
 const Message = (props) => {
     const msg = new SpeechSynthesisUtterance();
@@ -14,6 +15,7 @@ const Message = (props) => {
     const voiceV = useSelector(state => state.voice);
     const dispatch = useDispatch();
     let voicesDropdown;
+
     useEffect(() => {
         dispatch(articleActions.random());
         voicesDropdown = document.querySelector('[name="voice"]');
@@ -48,16 +50,7 @@ const Message = (props) => {
 
     };
 
-    // function populateVoices() {
-    //     voices = this.getVoices();
-    //     console.log(voices, 'v1');
-    //
-    //
-    //     voicesDropdown.innerHTML = voices
-    //         // .filter(voice => voice.lang.includes('en'))
-    //         .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
-    //         .join('');
-    // }
+
 
 
     function toggle(startOver = true) {
