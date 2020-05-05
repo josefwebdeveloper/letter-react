@@ -1,0 +1,7 @@
+export const timerConstants = {
+
+    TIMER_SUCCESS: 'TIMER_SUCCESS',
+    TIMER_REQUEST: 'TIMER_REQUEST',
+    TIMER_FAILURE: 'TIMER_FAILURE',
+
+};

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import moment from 'moment';
 import Moment from 'react-moment';
-import {timerService} from '../../_services/timer.service';
 
 const Timer = (props) => {
     const [counter, setCounter] = useState(86400000);

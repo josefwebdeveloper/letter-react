@@ -39,14 +39,12 @@ const Message = (props) => {
         setTimeout(() => {
             msg.text = document.getElementById('tsx').innerHTML;
             speechSynthesis.speak(msg);
-        }, 3000);
+        }, 2000);
     };
 
 
     const soundHandle = () => {
-        console.log(showSound);
         showSound = !showSound;
-        console.log(showSound);
 
     };
 
