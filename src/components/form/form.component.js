@@ -4,8 +4,9 @@ import {useDispatch} from 'react-redux';
 import {formConstants} from '../../store/_constants/form.constats';
 import {formActions} from '../../store/_actions/form.actions';
 import {article} from '../../store/_reducers/article.reducer';
+import {timerActions} from '../../store/_actions/timer.action';
 
-const Form = () => {
+const Form = (props) => {
     const [inputs, setInputs] = useState({
         article: 'Dear WebSite,'
     });
@@ -30,6 +31,7 @@ const Form = () => {
 
             // console.log({article:article,type:'crazy'});
             dispatch(formActions.postArticle({article: article, type: 'crazy'}));
+            props.handleTimer();
             console.log(e.target);
             setInputs({article: 'Dear WebSite,'});
 
@@ -54,9 +56,13 @@ const Form = () => {
                         <button className="btn btn-primary">
                             Send
                         </button>
+
                         {/*<Link to="/register" className="btn btn-link">Register</Link>*/}
                     </div>
                 </form>
+                <button className="btn btn-primary">
+                    voice Input
+                </button>
             </div>
         </div>
     );

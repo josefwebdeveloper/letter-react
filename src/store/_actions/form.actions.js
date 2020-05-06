@@ -1,6 +1,7 @@
 import {history} from '../history';
 import {articleService} from '../../_services/article.service';
 import {formConstants} from '../_constants/form.constats';
+import {timerConstants} from '../_constants/timer.constants';
 
 export const formActions = {
     postArticle
@@ -9,6 +10,7 @@ export const formActions = {
 function postArticle(article) {
     return dispatch => {
         dispatch(request(article));
+        // dispatch(timer());
 
         articleService.createArticle(article)
             .then(
@@ -21,6 +23,10 @@ function postArticle(article) {
                 }
             );
     };
+
+    // function timer() {
+    //     return {type: timerConstants.TIMER_REQUEST};
+    // }
 
     function request(article) {
         return {type: formConstants.POST_REQUEST, article};

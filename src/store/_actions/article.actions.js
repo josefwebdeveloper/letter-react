@@ -1,12 +1,13 @@
 import {articleConstants} from '../_constants/article.constants';
 import {history} from '../history';
 import {articleService} from '../../_services/article.service';
+import {timerConstants} from '../_constants/timer.constants';
 
 
 export const articleActions = {
     random,
     successVoice,
-    errorVoice,
+    errorVoice
 };
 
 function successVoice(voice) {
@@ -21,13 +22,14 @@ function errorVoice(voice) {
 function random() {
     return dispatch => {
         dispatch(request());
-
         articleService.getRandom()
             .then(
                 article => dispatch(success(article.data.article[0])),
                 error => dispatch(failure(error.toString()))
             );
     };
+
+
 
     function request() {
         return {type: articleConstants.RANDOM_REQUEST};

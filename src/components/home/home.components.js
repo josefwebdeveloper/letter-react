@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './home.style.scss';
 import Message from '../message/message.components';
 import Form from '../form/form.component';
@@ -7,10 +7,14 @@ import Timer from '../timer/timer.component';
 import Footer from '../footer/footer.component';
 import {timerActions} from '../../store/_actions/timer.action';
 
+debugger
 const Home = () => {
     // const [startCounter, setCounter] = useState(null);
+    debugger
     const startCounter = useSelector(state => state.timer);
+    debugger
     console.log(startCounter);
+    const childRef = useRef();
     // const startCounter = useSelector(state => {
     //     console.log(state);
     //     const startTime = state.timer.data.timer[0].startTime;
@@ -27,8 +31,9 @@ const Home = () => {
     // });
     const dispatch = useDispatch();
     useEffect(() => {
+        debugger
         dispatch(timerActions.successTimer());
-        setInterval(() => dispatch(timerActions.successTimer()),60000);
+        setInterval(() => dispatch(timerActions.successTimer()), 60000);
         // const timer = () => {
         //     timerService.getTimer().then((res) => {
         //         console.log(res);
@@ -47,19 +52,24 @@ const Home = () => {
         // };
         // timer();
     }, []);
-
+    const handleTimer = () => {
+        console.log('handleTimer');
+        dispatch(timerActions.successTimer());
+        childRef.current.updateCounter();
+    };
 
     return (
         <div>
             <div id='header' className='full-rotate'>
-                <h1>This website will self destruct <span><Timer startCounter={startCounter.timer}/></span></h1>
+                <h1>This website will self destruct <span><Timer ref={childRef}
+                                                                 startCounter={startCounter.timer}/></span></h1>
 
                 <Message/>
 
             </div>
             <div id='header' className='full-rotate'>
 
-                <Form/>
+                <Form handleTimer={handleTimer}/>
 
             </div>
 
