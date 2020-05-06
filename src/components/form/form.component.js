@@ -3,8 +3,6 @@ import './form.style.scss';
 import {useDispatch} from 'react-redux';
 import {formConstants} from '../../store/_constants/form.constats';
 import {formActions} from '../../store/_actions/form.actions';
-import {article} from '../../store/_reducers/article.reducer';
-import {timerActions} from '../../store/_actions/timer.action';
 
 const Form = (props) => {
     const [inputs, setInputs] = useState({
@@ -12,10 +10,16 @@ const Form = (props) => {
     });
     const [submitted, setSubmitted] = useState(false);
     const {article} = inputs;
+
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch({type: formConstants.CLEAR_FORM});
     }, []);
+
+    const speech = () => {
+
+    };
 
     function handleChange(e) {
 
@@ -44,25 +48,16 @@ const Form = (props) => {
                 {/*<h1>Form</h1>*/}
                 <form id='article-text' name="form" onSubmit={handleSubmit}>
                     <div className="form-group">
-                        {/*<label>Article</label>*/}
                         <textarea className='note' id='article-text' name="article" value={article}
                                   onChange={handleChange}
                         />
-                        {/*{submitted &&*/}
-                        {/*<div className="invalid-feedback">text error</div>*/}
-                        {/*}*/}
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">
                             Send
                         </button>
-
-                        {/*<Link to="/register" className="btn btn-link">Register</Link>*/}
                     </div>
                 </form>
-                <button className="btn btn-primary">
-                    voice Input
-                </button>
             </div>
         </div>
     );

@@ -1,6 +1,4 @@
 import {articleConstants} from '../_constants/article.constants';
-import {history} from '../history';
-// import {articleService} from '../../_services/article.service';
 
 
 export const voiceAction = {

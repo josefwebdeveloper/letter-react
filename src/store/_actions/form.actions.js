@@ -1,7 +1,6 @@
 import {history} from '../history';
 import {articleService} from '../../_services/article.service';
 import {formConstants} from '../_constants/form.constats';
-import {timerConstants} from '../_constants/timer.constants';
 
 export const formActions = {
     postArticle

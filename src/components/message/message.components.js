@@ -12,17 +12,13 @@ const Message = (props) => {
     const [show, setShow] = useState(false);
     let showSound = false;
     const randomArticleVoice = useSelector(state => state.article);
-    const voiceV = useSelector(state => state.voice);
     const dispatch = useDispatch();
     let voicesDropdown;
 
     useEffect(() => {
         dispatch(articleActions.random());
         voicesDropdown = document.querySelector('[name="voice"]');
-        // speechSynthesis.addEventListener('voiceschanged', populateVoices);
-        // voicesDropdown.addEventListener('change', setVoice);
-        // msg.text = document.querySelector('[name="text"]').value;
-        // console.log(document.getElementById('message'));
+
     }, []);
     const nextHandle = (e) => {
         console.log(e)

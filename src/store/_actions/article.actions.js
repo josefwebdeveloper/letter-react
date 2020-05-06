@@ -1,7 +1,5 @@
 import {articleConstants} from '../_constants/article.constants';
-import {history} from '../history';
 import {articleService} from '../../_services/article.service';
-import {timerConstants} from '../_constants/timer.constants';
 
 
 export const articleActions = {
