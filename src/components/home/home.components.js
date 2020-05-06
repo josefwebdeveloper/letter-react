@@ -28,6 +28,7 @@ const Home = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(timerActions.successTimer());
+        setInterval(() => dispatch(timerActions.successTimer()),60000);
         // const timer = () => {
         //     timerService.getTimer().then((res) => {
         //         console.log(res);
