@@ -12,41 +12,10 @@ const Home = () => {
     const startCounter = useSelector(state => state.timer);
     console.log(startCounter);
     const childRef = useRef();
-    // const startCounter = useSelector(state => {
-    //     console.log(state);
-    //     const startTime = state.timer.data.timer[0].startTime;
-    //     console.log(startTime);
-    //     const now = new Date();
-    //     console.log(now);
-    //     const ms = moment(now,).diff(moment(startTime,));
-    //     console.log(ms);
-    //     const msf = 86400000 - ms;
-    //     const d = moment.duration(msf);
-    //     const s = d.format('hh:mm:ss');
-    //     console.log(s);
-    //     return s;
-    // });
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(timerActions.successTimer());
         setInterval(() => dispatch(timerActions.successTimer()), 60000);
-        // const timer = () => {
-        //     timerService.getTimer().then((res) => {
-        //         console.log(res);
-        //         const startTime = res.data.timer[0].startTime;
-        //         console.log(startTime);
-        //         const now = new Date();
-        //         console.log(now);
-        //         const ms = moment(now,).diff(moment(startTime,));
-        //         console.log(ms);
-        //         const msf = 86400000 - ms;
-        //         const d = moment.duration(msf);
-        //         const s = d.format('hh:mm:ss');
-        //         console.log(s);
-        //         setCounter(ms);
-        //     });
-        // };
-        // timer();
     }, []);
     const handleTimer = () => {
         console.log('handleTimer');
