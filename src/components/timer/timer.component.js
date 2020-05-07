@@ -16,7 +16,7 @@ const Timer = forwardRef((props, ref) => {
     }
     useEffect(() => {
         counter > 0 && setCounterTimeout();
-    }, [counter]);
+    }, [counter,props.startCounter]);
     return (
         <div className="timer">
             <div>Countdown: {moment.duration(counter - props.startCounter, 'milliseconds').format('hh:mm:ss')}</div>

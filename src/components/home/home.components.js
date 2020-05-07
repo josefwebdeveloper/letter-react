@@ -7,12 +7,9 @@ import Timer from '../timer/timer.component';
 import Footer from '../footer/footer.component';
 import {timerActions} from '../../store/_actions/timer.action';
 
-debugger
 const Home = () => {
     // const [startCounter, setCounter] = useState(null);
-    debugger
     const startCounter = useSelector(state => state.timer);
-    debugger
     console.log(startCounter);
     const childRef = useRef();
     // const startCounter = useSelector(state => {
@@ -31,7 +28,6 @@ const Home = () => {
     // });
     const dispatch = useDispatch();
     useEffect(() => {
-        debugger
         dispatch(timerActions.successTimer());
         setInterval(() => dispatch(timerActions.successTimer()), 60000);
         // const timer = () => {
