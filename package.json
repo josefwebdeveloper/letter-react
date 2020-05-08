@@ -2,7 +2,6 @@
   "name": "letters",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://josefwebdeveloper.github.io/letter-react",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -13,7 +12,10 @@
     "node-sass": "^4.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-moment": "^0.9.7",
     "react-redux": "^7.2.0",
+    "react-router": "^5.1.2",
+    "react-router-sitemap": "^1.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
@@ -27,7 +29,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start:dev":"cross-env REACT_APP_ENV=development npm run start"
+    "start:dev": "cross-env REACT_APP_ENV=development npm run start",
+    "sitemap": "babel-node ./sitemap-generator.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,5 +46,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0"
   }
 }
